@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Traffic Command Center</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Traffic system stages">
+        <div class="brand">
+          <div class="brand-mark">GT</div>
+          <div>
+            <p>Game Traffic</p>
+            <strong>System V2</strong>
+          </div>
+        </div>
+
+        <nav class="stage-nav" id="stageNav"></nav>
+
+        <section class="side-panel">
+          <span class="panel-label">Operating Rule</span>
+          <p>Build 100 experiments, kill 90, keep 9, concentrate on 1 winner.</p>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">AI Internet Intelligence Unit</p>
+            <h1>Traffic Command Center</h1>
+          </div>
+          <div class="toolbar" role="group" aria-label="Dashboard actions">
+            <button class="icon-button" id="loadDemoBtn" title="Load demo battlefield">R</button>
+            <button class="primary-button" id="loadDemoDatasetBtn">Load Demo Dataset</button>
+            <button class="ghost-button" id="exportBackupBtn">Export All Data JSON</button>
+            <label class="file-button">
+              Import Backup JSON
+              <input id="backupFile" type="file" accept=".json,application/json" />
+            </label>
+            <button class="ghost-button" id="healthCheckBtn">Health Check</button>
+            <button class="primary-button" id="exportBtn">Export Plan</button>
+            <button class="danger-button" id="clearDataBtn">Clear Data</button>
+          </div>
+        </header>
+
+        <section class="signal-strip" aria-label="Daily intelligence signals">
+          <div>
+            <span>Steam New Releases</span>
+            <strong id="steamCount">18</strong>
+          </div>
+          <div>
+            <span>Reddit Heat</span>
+            <strong id="redditHeat">84</strong>
+          </div>
+          <div>
+            <span>Google Momentum</span>
+            <strong id="googleMomentum">+31%</strong>
+          </div>
+          <div>
+            <span>Content Queue</span>
+            <strong id="queueCount">20</strong>
+          </div>
+        </section>
+
+        <section class="traffic-map" aria-label="Traffic source map">
+          <div class="map-copy">
+            <span class="panel-label">Live Battlefield</span>
+            <h2>Find where search demand is rising before competitors settle in.</h2>
+          </div>
+          <div class="source-grid" id="sourceGrid"></div>
+        </section>
+
+        <section class="section-grid">
+          <div class="module wide">
+            <div class="module-header">
+              <div>
+                <span class="panel-label">MVP v1.6</span>
+                <h2>Real Data Import</h2>
+              </div>
+              <span class="save-state" id="saveState">Saved locally</span>
+            </div>
+            <div class="import-grid">
+              <label>
+                Source
+                <select id="importSource">
+                  <option value="steam">Steam hot games</option>
+                  <option value="reddit">Reddit hot titles</option>
+                  <option value="google">Google keyword list</option>
+                </select>
+              </label>
+              <label>
+                CSV or JSON file
+                <input id="importFile" type="file" accept=".csv,.json,application/json,text/csv" />
+              </label>
+              <button class="primary-button" id="importBtn" type="button">Import Data</button>
+            </div>
+            <textarea
+              class="import-text"
+              id="importText"
+              placeholder='Paste CSV or JSON here, e.g. {"google":["best co-op games 2026","arc raiders settings"]}'
+            ></textarea>
+            <div class="import-help">
+              Use either a file or pasted text. CSV accepts columns like keyword, title, game, growth, traffic, competition, intent. JSON accepts an array or an object with steam, reddit, and google arrays.
+            </div>
+            <div class="import-log" id="importLog"></div>
+          </div>
+
+          <div class="module wide">
+            <div class="module-header">
+              <div>
+                <span class="panel-label">Traffic Recovery</span>
+                <h2>Search Console Import</h2>
+              </div>
+              <div class="header-actions">
+                <button class="ghost-button" id="exportPerformanceBtn">Performance_Report.md</button>
+                <button class="ghost-button" id="exportWinnersBtn">Winners.md</button>
+                <button class="ghost-button" id="exportDeadPagesBtn">Dead_Pages.md</button>
+                <button class="ghost-button" id="downloadGscSampleBtn">Sample GSC CSV</button>
+              </div>
+            </div>
+            <div class="import-grid">
+              <label>
+                GSC CSV file
+                <input id="gscFile" type="file" accept=".csv,text/csv" />
+              </label>
+              <button class="primary-button" id="gscImportBtn" type="button">Import GSC</button>
+            </div>
+            <textarea
+              class="import-text"
+              id="gscText"
+              placeholder="Query,Page,Clicks,Impressions,CTR,Position"
+            ></textarea>
+            <div class="import-help">
+              Compatible fields: Query, Page, Clicks, Impressions, CTR, Position. Matching uses Published URL, article slug, then keyword.
+            </div>
+            <div class="import-log" id="gscImportLog"></div>
+          </div>
+
+          <div class="module wide">
+            <div class="module-header">
+              <div>
+                <span class="panel-label">Stage 1-2</span>
+                <h2>Opportunity Hunter</h2>
+              </div>
+              <div class="header-actions">
+                <button class="ghost-button" id="addKeywordBtn">Add Keyword</button>
+                <button class="ghost-button" id="exportTopArticlesBtn">Export Top 10 Package</button>
+                <button class="ghost-button" id="exportWinningArticlesBtn">Export Winning Package</button>
+              </div>
+            </div>
+
+            <form class="keyword-form" id="keywordForm" aria-label="Add opportunity keyword">
+              <input id="keywordInput" name="keyword" placeholder="keyword, e.g. best class in new co-op game" />
+              <select id="intentInput" name="intent" aria-label="Search intent">
+                <option>Guide</option>
+                <option>FAQ</option>
+                <option>Build</option>
+                <option>Settings</option>
+                <option>Worth It</option>
+              </select>
+              <input id="growthInput" name="growth" type="number" min="1" max="300" value="45" aria-label="Growth rate" />
+              <button type="submit">Score</button>
+            </form>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Keyword</th>
+                    <th>Intent</th>
+                    <th>Growth</th>
+                    <th>Traffic</th>
+                    <th>Competition</th>
+                    <th>Score</th>
+                    <th>Quality</th>
+                    <th>Warning</th>
+                    <th>Traffic</th>
+                    <th>Perf</th>
+                    <th>Action</th>
+                    <th>Priority</th>
+                    <th>Content Status</th>
+                    <th>Exports</th>
+                  </tr>
+                </thead>
+                <tbody id="keywordTable"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="module">
+            <div class="module-header">
+              <div>
+                <span class="panel-label">Stage 3</span>
+                <h2>Battlefield Filter</h2>
+              </div>
+            </div>
+            <div class="filter-list">
+              <label><input type="checkbox" checked data-filter="newRelease" /> New game under 30 days</label>
+              <label><input type="checkbox" checked data-filter="majorUpdate" /> Major update under 14 days</label>
+              <label><input type="checkbox" checked data-filter="redditBurst" /> Reddit discussion burst</label>
+              <label><input type="checkbox" checked data-filter="googleUp" /> Google trend rising</label>
+            </div>
+            <div class="battlefield-result" id="battlefieldResult"></div>
+          </div>
+
+          <div class="module">
+            <div class="module-header">
+              <div>
+                <span class="panel-label">Stage 4-7</span>
+                <h2>Content Factory</h2>
+              </div>
+            </div>
+            <div class="factory-controls">
+              <label>
+                Article Type
+                <select id="articleType">
+                  <option>Beginner Guide</option>
+                  <option>Achievement Guide</option>
+                  <option>Best Settings</option>
+                  <option>Worth It</option>
+                  <option>Comparison</option>
+                  <option>FAQ</option>
+                </select>
+              </label>
+              <label>
+                Game
+                <input id="gameInput" value="Arc Raiders" />
+              </label>
+              <button class="primary-button" id="generateBriefBtn">Generate Brief</button>
+            </div>
+            <div class="brief-output" id="briefOutput"></div>
+          </div>
+
+          <div class="module wide">
+            <div class="module-header">
+              <div>
+                <span class="panel-label">Stage 8-11</span>
+                <h2>Publishing Monitor</h2>
+              </div>
+              <div class="segmented" role="group" aria-label="Monitoring view">
+                <button class="active" data-view="winning">Winning</button>
+                <button data-view="growing">Growing</button>
+                <button data-view="dead">Dead</button>
+              </div>
+            </div>
+            <div class="monitor-layout">
+              <div class="trend-chart" id="trendChart" aria-label="Traffic performance chart"></div>
+              <div class="allocation" id="allocation"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="exportDialog">
+      <form method="dialog">
+        <div class="dialog-header">
+          <h2>Production Plan</h2>
+          <button class="icon-button" value="cancel" title="Close">x</button>
+        </div>
+        <div class="export-actions">
+          <button type="button" class="ghost-button" data-download="traffic">Traffic_Report.md</button>
+          <button type="button" class="ghost-button" data-download="brief">Article_Brief.md</button>
+          <button type="button" class="ghost-button" data-download="seo">SEO_Plan.md</button>
+          <button type="button" class="primary-button" data-download="astro">Download Astro .md</button>
+          <button type="button" class="primary-button" data-download-package>Astro Package</button>
+        </div>
+        <textarea id="exportText" readonly></textarea>
+        <button class="primary-button" value="default">Done</button>
+      </form>
+    </dialog>
+
+    <dialog id="editorialDialog">
+      <form method="dialog">
+        <div class="dialog-header">
+          <h2>Editorial Control</h2>
+          <button class="icon-button" value="cancel" title="Close">x</button>
+        </div>
+        <div id="editorialSummary" class="editorial-summary"></div>
+        <div class="editorial-grid">
+          <label>
+            Published URL
+            <input id="publishedUrlInput" type="url" placeholder="https://example.com/game/article/" />
+          </label>
+          <label>
+            Publish Date
+            <input id="publishDateInput" type="date" />
+          </label>
+          <label>
+            Last Updated Date
+            <input id="lastUpdatedDateInput" type="date" />
+          </label>
+        </div>
+        <div id="checklistOutput" class="checklist-output"></div>
+        <button class="primary-button" id="saveEditorialBtn" type="button">Save Editorial Fields</button>
+      </form>
+    </dialog>
+
+    <script src="app.js?v=1.5"></script>
+  </body>
+</html>
