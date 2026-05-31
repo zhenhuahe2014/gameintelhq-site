@@ -27,8 +27,8 @@ Analytics: Not configured in repository yet.
 
 Production URL: https://gameintelhq.com/  
 Deployment Status: Live.  
-Latest Commit: Local commit created - `Publish batch 004 articles`  
-Latest Release: Batch004 committed locally with 20 total articles on 2026-05-31.
+Latest Commit: Batch004 publication pushed to `main`.  
+Latest Release: Batch004 pushed to GitHub with 20 total articles on 2026-05-31.
 
 ## Content Status
 
