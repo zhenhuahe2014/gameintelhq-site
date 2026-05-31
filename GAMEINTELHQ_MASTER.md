@@ -1,13 +1,13 @@
 # GAMEINTELHQ_MASTER.md
 
-Version: 1.4  
+Version: 1.6  
 Last Updated: 2026-05-31  
 Project: GameIntelHQ  
 Domain: gameintelhq.com
 
 ## Executive Summary
 
-GameIntelHQ is live as a public gaming SEO experiment site and traffic intelligence platform. The launch sprint is complete: the production site is deployed, Command Center MVP v1.6 is live, sitemap and robots are active, Search Console is verified, and 20 articles have been published across Batch001, Batch002, Batch003, and Batch004.
+GameIntelHQ is live as a public gaming SEO experiment site and traffic intelligence platform. The launch sprint is complete: the production site is deployed, Command Center MVP v1.6 is live, sitemap and robots are active, Search Console is verified, and 25 articles have been published across Batch001, Batch002, Batch003, Batch004, and Batch005.
 
 Mission: Build a gaming traffic intelligence platform that discovers, tests, validates, and scales gaming search opportunities.
 
@@ -27,15 +27,15 @@ Analytics: Not configured in repository yet.
 
 Production URL: https://gameintelhq.com/  
 Deployment Status: Live.  
-Latest Commit: Batch004 publication pushed to `main`.  
-Latest Release: Batch004 pushed to GitHub with 20 total articles on 2026-05-31.
+Latest Commit: Batch004 publication pushed to `main`; Batch005 prepared locally for publication.  
+Latest Release: Batch005 Sprint Complete with 25 total articles on 2026-05-31.
 
 ## Content Status
 
-Published Articles: 20  
+Published Articles: 25  
 Indexed Articles: Unknown; pending Search Console data.  
-Pending Articles: 10 remaining toward the 30-article validation target.  
-Current Batch: Batch004 complete; Batch005 planned.
+Pending Articles: 5 remaining toward the 30-article validation target.  
+Current Batch: Batch005 Sprint Complete; Batch006 planned.
 
 Published article URLs:
 
@@ -59,6 +59,11 @@ Published article URLs:
 - https://gameintelhq.com/articles/helldivers-2-patch-notes-explained/
 - https://gameintelhq.com/articles/dune-awakening-pvp-vs-pve/
 - https://gameintelhq.com/articles/monster-hunter-wilds-achievement-guide/
+- https://gameintelhq.com/articles/dune-awakening-beginner-guide/
+- https://gameintelhq.com/articles/arc-raiders-best-settings/
+- https://gameintelhq.com/articles/subnautica-2-beginner-guide/
+- https://gameintelhq.com/articles/clair-obscur-expedition-33-best-party/
+- https://gameintelhq.com/articles/monster-hunter-wilds-patch-notes-explained/
 
 ## SEO Status
 
@@ -85,7 +90,7 @@ Winner tracking requires Search Console impressions, clicks, CTR, and average po
 
 ## Content Strategy
 
-Current Focus: Move from Batch004 completion into Batch005 planning while continuing indexing validation for all 20 published URLs.
+Current Focus: Batch006 planning and index follow-up for all 25 published URLs.
 
 Priority Categories:
 
@@ -99,11 +104,12 @@ Priority Categories:
 Current article mix:
 
 - Worth It / Buy Decision: 4
-- Beginner Guide: 3
-- Best Settings: 3
-- Patch Notes / Loadout Update: 2
+- Beginner Guide: 5
+- Best Settings: 4
+- Patch Notes / Loadout Update: 3
 - Achievement Guide: 4
 - Comparison: 4
+- Party / Build Guide: 1
 
 ## Command Center Status
 
@@ -187,19 +193,29 @@ Batch003 and Index Validation Sprint marked complete. Site now has 15 published 
 2026-05-31  
 Batch004 published with 5 additional articles focused on Comparison, Best Settings, Patch Notes, and Achievement Guide opportunities. Total published articles: 20.
 
+2026-05-31  
+Batch004 Sprint Complete. Batch004 was pushed to GitHub `main`, sitemap was updated to include 20 published articles, and the project moved into Batch005 Planning and Index Follow-up.
+
+2026-05-31  
+Batch005 published with 5 additional articles focused on Beginner Guide, Best Settings, Patch Notes, and Party Guide opportunities. Total published articles: 25.
+
+2026-05-31  
+Batch005 Sprint Complete. Sitemap was updated to include 25 published articles, and the project moved into Batch006 Planning and Index Follow-up.
+
 ## Current Sprint
 
-Batch005 Planning and Index Follow-up Sprint.
+Batch006 Planning and Index Follow-up Sprint.
 
-Objective: Prepare and publish the next 5 articles while tracking indexing status for the 20 live URLs in Google Search Console.
+Objective: Prepare Batch006 with 5 additional articles while tracking indexing status for the 25 live URLs in Google Search Console.
 
-Current progress: 20 / 30 articles published.
+Current progress: 25 / 30 articles published.
 
 ## Next Actions
 
-1. Submit or resubmit https://gameintelhq.com/sitemap.xml in Google Search Console after Batch004 deployment.
-2. Run URL Inspection for the 20 published articles and record indexed status.
-3. Plan and publish Batch005 with 5 more articles, prioritizing Worth It, Beginner Guide, Patch Notes, and Best Settings opportunities.
-4. Add indexed article count to `GAMEINTELHQ_MASTER.md` once Search Console confirms coverage.
-5. Import first Search Console CSV into the Command Center once impressions appear.
-6. Add analytics once early traffic appears.
+1. Submit or resubmit https://gameintelhq.com/sitemap.xml in Google Search Console after Batch005 completion.
+2. Run URL Inspection for the 25 published articles and record indexed status.
+3. Plan Batch006 keyword targets, prioritizing Worth It, Beginner Guide, Patch Notes, Best Settings, and Comparison opportunities.
+4. Publish Batch006 with 5 additional articles to reach 30 / 30 validation-target articles.
+5. Add indexed article count to `GAMEINTELHQ_MASTER.md` once Search Console confirms coverage.
+6. Import first Search Console CSV into the Command Center once impressions appear.
+7. Add analytics once early traffic appears.
